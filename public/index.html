@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>angualr2</title>
+    <base href="">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/jspm_packages/system.js"></script>
+    <script src="/config.js"></script>
+  </head>
+
+  <body>
+
+
+    <!-- THIS IS THE TRADITIONAL WAY OF BOOTSTRAPPING AN ANGULAR1 APP
+    <div ng-app="ngOne">
+      <ui-view></ui-view>
+    </div>-->
+
+
+    <!-- INSTEAD, WE'LL BOOTSTRAP ANGULAR1 FROM /ng-one/boostrap.js -->
+    <div id="ngApp">
+      <ui-view></ui-view>
+    </div>
+    <script>System.import('/ng-one-bootstrap')</script>
+
+
+    <!-- ONCE YOU'VE UPDATED ALL COMPONENTS, BOOTSTRAP WITH ANGULAR2 INSTEAD
+    <app></app>
+    <script>System.import('/ng-two-bootstrap')</script> -->
+
+
+    <!-- HOT RELOADING BOOTSTRAP ANGULAR2
+    <script>
+      var readyForMainLoad
+      if (location.origin.match(/localhost/)) {
+        System.trace = true
+        readyForMainLoad = System.import('systemjs-hot-reloader').then(function(HotReloader){
+          hr = new HotReloader.default('http://localhost:9089');
+        });
+      }
+      Promise.resolve(readyForMainLoad).then(function() {
+        System.import('components').then(function(){ console.log('running') });
+      });
+    </script> -->
+
+  </body>
+</html>

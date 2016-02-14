@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "system",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "noImplicitAny": false
+  },
+  "exclude": [
+    "jspm_packages",
+    "node_modules"
+  ],
+  "compileOnSave": false,
+  "filesGlob": [
+    "public/components/**/*.*"
+  ],
+  "files": [
+    "public/components/directory/directory-home.ts",
+    "public/components/directory/directory.ts"
+  ],
+  "atom": {
+    "rewriteTsconfig": true
+  }
+}
