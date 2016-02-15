@@ -4,9 +4,11 @@ import angular from 'angular'
 import 'angular-ui-router'
 import {UpgradeAdapter} from 'angular2/upgrade'
 
-import Directory from '../components/directory/directory.ts'
-import DirectoryHome from '../components/directory/directory-home.ts'
-import ContactService from '../services/contact.ts'
+import Directory from './components/directory/directory.ts'
+import DirectoryHome from './components/directory/directory-home.ts'
+import ContactService from './services/contact.ts'
+import Lister from './components/lister/lister.ts'
+
 
 var adapter: UpgradeAdapter = new UpgradeAdapter()
 adapter.addProvider(ContactService)
@@ -76,7 +78,7 @@ angular.module('ngOne', [
 .factory('contactService', adapter.downgradeNg2Provider(ContactService))
 .directive('directory', adapter.downgradeNg2Component(Directory))
 .directive('directoryHome', adapter.downgradeNg2Component(DirectoryHome))
-// .directive('lister', adapter.downgradeNg2Component(Lister))
+.directive('lister', adapter.downgradeNg2Component(Lister))
 
 // adapter.upgradeNg1Provider('SFObject')
 adapter.bootstrap(document.body, ['ngOne'])

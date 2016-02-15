@@ -1,20 +1,28 @@
-import {Component, OnInit} from 'angular2/core'
+import {Component, OnInit, Inject} from 'angular2/core'
+import {Observable} from 'rxjs'
+import ContactService from '../../services/contact.ts'
+
+import Lister from '../lister/lister.ts'
+
 
 @Component({
   selector: 'directory-home',
   inputs: ['items'],
+  directives: [Lister],
   template: `
     <h1>LIST:</h1>
-    <ul>
-      <li *ngFor="#item of items | async">
-        {{item.name}}
-      </li>
-    </ul>
+    <lister [items]="items"></lister>
   `
 })
 
 export default class DirectoryHome implements OnInit {
-  ngOnInit() {
+  items: Observable<any[]>
 
+  constructor(
+    @Inject(ContactService) private contactService: ContactService
+  ) { }
+
+  ngOnInit() {
+    this.items = this.contactService.list
   }
 }

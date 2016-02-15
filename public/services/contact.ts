@@ -1,4 +1,5 @@
 import {Injectable} from 'angular2/core'
+import {Observable, Subject} from 'rxjs'
 
 const mockData = [
   { name: 'james', age: 14 },
@@ -13,11 +14,20 @@ const mockData = [
 
 @Injectable()
 export default class ContactService {
+  list: Subject<any[]> = new Subject()
+
+  constructor() {
+    this.getAll()
+  }
+
   getAll() {
-    return new Promise(function(resolve) {
-      setTimeout(function() {
+    return new Promise((resolve) => {
+      setTimeout(() => {
         resolve(mockData)
+        this.list.next(mockData)
       }, 1500)
     })
   }
+
+
 }

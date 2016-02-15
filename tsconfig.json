@@ -17,7 +17,8 @@
   ],
   "files": [
     "public/components/directory/directory-home.ts",
-    "public/components/directory/directory.ts"
+    "public/components/directory/directory.ts",
+    "public/components/lister/lister.ts"
   ],
   "atom": {
     "rewriteTsconfig": true
